@@ -1,0 +1,456 @@
+2023-07-07T00:04:53.134+03:00  INFO 5156 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-07-07T00:04:53.150+03:00  INFO 5156 --- [Thread-22] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07T00:04:53.156+03:00  INFO 5156 --- [Thread-22] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:04:53.157+03:00  INFO 5156 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-07-07T00:04:53.158+03:00  INFO 5156 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-07-07T00:04:53.237+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Starting RentACarApplication using Java 20 with PID 5156 (C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar\target\classes started by 0meng in C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar)
+2023-07-07T00:04:53.238+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-07T00:04:53.569+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:04:53.569+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-07-07T00:04:53.574+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.BrandRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:04:53.575+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.ModelRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:04:53.575+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2023-07-07T00:04:53.578+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:04:53.578+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07T00:04:53.584+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2023-07-07T00:04:53.611+03:00 ERROR 5156 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783) ~[spring-core-6.0.10.jar:6.0.10]
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321) ~[spring-core-6.0.10.jar:6.0.10]
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562) ~[spring-core-6.0.10.jar:6.0.10]
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407) ~[spring-core-6.0.10.jar:6.0.10]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:531) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:308) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:358) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:150) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:771) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:589) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at hakan.rentacar.RentACarApplication.main(RentACarApplication.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.1.jar:3.1.1]
+
+2023-07-07T00:04:55.055+03:00  INFO 5156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-07T00:04:55.055+03:00  INFO 5156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-07T00:04:55.058+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Starting RentACarApplication using Java 20 with PID 5156 (C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar\target\classes started by 0meng in C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar)
+2023-07-07T00:04:55.058+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-07T00:04:55.355+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:04:55.355+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-07-07T00:04:55.360+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.BrandRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:04:55.361+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.ModelRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:04:55.361+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2023-07-07T00:04:55.364+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:04:55.364+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07T00:04:55.371+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2023-07-07T00:04:55.449+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07T00:04:55.449+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07T00:04:55.449+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-07T00:04:55.468+03:00  INFO 5156 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07T00:04:55.468+03:00  INFO 5156 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 409 ms
+2023-07-07T00:04:55.521+03:00  INFO 5156 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07T00:04:55.527+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:04:55.527+03:00  INFO 5156 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-07T00:04:55.528+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2023-07-07T00:04:55.580+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@1acd558b
+2023-07-07T00:04:55.580+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2023-07-07T00:04:55.600+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:04:55.635+03:00  INFO 5156 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07T00:04:55.688+03:00  INFO 5156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:04:55.796+03:00  WARN 5156 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07T00:04:55.975+03:00  INFO 5156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-07T00:04:55.978+03:00  INFO 5156 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-07T00:04:55.999+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-07T00:04:56.007+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Started RentACarApplication in 0.964 seconds (process running for 694.289)
+2023-07-07T00:04:56.009+03:00  INFO 5156 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-07T00:05:39.449+03:00  INFO 5156 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-07-07T00:05:39.460+03:00  INFO 5156 --- [Thread-29] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07T00:05:39.464+03:00  INFO 5156 --- [Thread-29] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:05:39.464+03:00  INFO 5156 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2023-07-07T00:05:39.465+03:00  INFO 5156 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2023-07-07T00:05:39.536+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Starting RentACarApplication using Java 20 with PID 5156 (C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar\target\classes started by 0meng in C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar)
+2023-07-07T00:05:39.536+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-07T00:05:39.848+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:05:39.848+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-07-07T00:05:39.854+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.BrandRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:05:39.855+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.ModelRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:05:39.856+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2023-07-07T00:05:39.859+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:05:39.859+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07T00:05:39.867+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 2 JPA repository interfaces.
+2023-07-07T00:05:39.953+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07T00:05:39.953+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07T00:05:39.953+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-07T00:05:39.977+03:00  INFO 5156 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07T00:05:39.977+03:00  INFO 5156 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 439 ms
+2023-07-07T00:05:40.034+03:00  INFO 5156 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07T00:05:40.041+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:05:40.041+03:00  INFO 5156 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-07T00:05:40.042+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2023-07-07T00:05:40.099+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection org.postgresql.jdbc.PgConnection@4c113054
+2023-07-07T00:05:40.099+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2023-07-07T00:05:40.123+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:05:40.182+03:00  INFO 5156 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07T00:05:40.248+03:00  INFO 5156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:05:40.380+03:00  WARN 5156 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07T00:05:40.588+03:00  INFO 5156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-07T00:05:40.591+03:00  INFO 5156 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-07T00:05:40.620+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-07T00:05:40.633+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Started RentACarApplication in 1.116 seconds (process running for 738.915)
+2023-07-07T00:05:40.637+03:00  INFO 5156 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-07T00:07:04.284+03:00  INFO 5156 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (2 additions, 0 deletions, 0 modifications)
+2023-07-07T00:07:04.294+03:00  INFO 5156 --- [Thread-36] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07T00:07:04.297+03:00  INFO 5156 --- [Thread-36] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:07:04.298+03:00  INFO 5156 --- [Thread-36] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2023-07-07T00:07:04.299+03:00  INFO 5156 --- [Thread-36] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2023-07-07T00:07:04.371+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Starting RentACarApplication using Java 20 with PID 5156 (C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar\target\classes started by 0meng in C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar)
+2023-07-07T00:07:04.371+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-07T00:07:04.670+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:07:04.670+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-07-07T00:07:04.676+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.BrandRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:07:04.677+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.ModelRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:07:04.677+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2023-07-07T00:07:04.680+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:07:04.680+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07T00:07:04.687+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 2 JPA repository interfaces.
+2023-07-07T00:07:04.768+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07T00:07:04.768+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07T00:07:04.768+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-07T00:07:04.788+03:00  INFO 5156 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07T00:07:04.788+03:00  INFO 5156 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 415 ms
+2023-07-07T00:07:04.850+03:00  INFO 5156 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07T00:07:04.857+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:07:04.857+03:00  INFO 5156 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-07T00:07:04.857+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2023-07-07T00:07:04.919+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection org.postgresql.jdbc.PgConnection@6b842c0b
+2023-07-07T00:07:04.919+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2023-07-07T00:07:04.951+03:00 ERROR 5156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Association 'hakan.rentacar.entities.concretes.Rental.customer' targets an unknown entity named 'hakan.rentacar.entities.concretes.Customer'
+2023-07-07T00:07:04.951+03:00  WARN 5156 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'hakan.rentacar.entities.concretes.Rental.customer' targets an unknown entity named 'hakan.rentacar.entities.concretes.Customer'
+2023-07-07T00:07:04.951+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2023-07-07T00:07:04.952+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2023-07-07T00:07:04.952+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07T00:07:04.967+03:00  INFO 5156 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-07-07T00:07:04.971+03:00 ERROR 5156 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'hakan.rentacar.entities.concretes.Rental.customer' targets an unknown entity named 'hakan.rentacar.entities.concretes.Customer'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at hakan.rentacar.RentACarApplication.main(RentACarApplication.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.1.jar:3.1.1]
+Caused by: org.hibernate.AnnotationException: Association 'hakan.rentacar.entities.concretes.Rental.customer' targets an unknown entity named 'hakan.rentacar.entities.concretes.Customer'
+	at org.hibernate.boot.model.internal.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:104) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1952) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processFkSecondPassesInOrder(InFlightMetadataCollectorImpl.java:1901) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1808) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:328) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
+	... 19 common frames omitted
+
+2023-07-07T00:11:29.267+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Starting RentACarApplication using Java 20 with PID 5156 (C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar\target\classes started by 0meng in C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar)
+2023-07-07T00:11:29.268+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-07T00:11:29.589+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:11:29.589+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-07-07T00:11:29.595+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.BrandRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:11:29.596+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.ModelRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:11:29.597+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2023-07-07T00:11:29.601+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:11:29.601+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07T00:11:29.609+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 2 JPA repository interfaces.
+2023-07-07T00:11:29.681+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07T00:11:29.682+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07T00:11:29.682+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-07T00:11:29.702+03:00  INFO 5156 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-07-07T00:11:29.702+03:00  INFO 5156 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 431 ms
+2023-07-07T00:11:29.751+03:00  INFO 5156 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07T00:11:29.757+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:11:29.757+03:00  INFO 5156 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-07T00:11:29.758+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2023-07-07T00:11:29.814+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection org.postgresql.jdbc.PgConnection@a1e07ca
+2023-07-07T00:11:29.815+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2023-07-07T00:11:29.833+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:11:29.879+03:00  INFO 5156 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07T00:11:29.947+03:00  INFO 5156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:11:30.076+03:00  WARN 5156 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07T00:11:30.332+03:00  INFO 5156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-07T00:11:30.337+03:00  INFO 5156 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-07T00:11:30.372+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-07T00:11:30.390+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Started RentACarApplication in 1.154 seconds (process running for 1088.671)
+2023-07-07T00:11:30.393+03:00  INFO 5156 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-07T00:11:31.777+03:00  INFO 5156 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (4 additions, 0 deletions, 0 modifications)
+2023-07-07T00:11:31.789+03:00  INFO 5156 --- [Thread-40] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07T00:11:31.792+03:00  INFO 5156 --- [Thread-40] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:11:31.793+03:00  INFO 5156 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2023-07-07T00:11:31.795+03:00  INFO 5156 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2023-07-07T00:11:31.890+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Starting RentACarApplication using Java 20 with PID 5156 (C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar\target\classes started by 0meng in C:\Users\0meng\OneDrive\Belgeler\GitHub\rentACar)
+2023-07-07T00:11:31.891+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-07-07T00:11:32.330+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:11:32.330+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-07-07T00:11:32.336+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.BrandRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:11:32.337+03:00  INFO 5156 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface hakan.rentacar.repostories.ModelRepostory; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-07-07T00:11:32.337+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2023-07-07T00:11:32.339+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-07T00:11:32.340+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07T00:11:32.347+03:00  INFO 5156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 2 JPA repository interfaces.
+2023-07-07T00:11:32.424+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07T00:11:32.424+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07T00:11:32.424+03:00  INFO 5156 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-07T00:11:32.443+03:00  INFO 5156 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-07-07T00:11:32.444+03:00  INFO 5156 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 550 ms
+2023-07-07T00:11:32.490+03:00  INFO 5156 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07T00:11:32.496+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:11:32.496+03:00  INFO 5156 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-07T00:11:32.496+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2023-07-07T00:11:32.547+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection org.postgresql.jdbc.PgConnection@a741629
+2023-07-07T00:11:32.548+03:00  INFO 5156 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2023-07-07T00:11:32.581+03:00  INFO 5156 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-07T00:11:32.657+03:00  INFO 5156 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07T00:11:32.708+03:00  WARN 5156 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create table customer (
+        id bigserial not null,
+        created_by varchar(255),
+        created_date timestamp(6),
+        date timestamp(6),
+        uptade_by varchar(255),
+        uptade_date timestamp(6),
+        city varchar(255) not null,
+        date_of_birth date not null check (date_of_birth>=18),
+        driver_license_number varchar(255) not null,
+        email varchar(255) not null,
+        first_name varchar(255) not null,
+        id_number varchar(255) not null,
+        last_name varchar(255) not null,
+        phone varchar(255) not null,
+        street varchar(255) not null,
+        zipcode integer not null check ((zipcode<=99999) and (zipcode>=10000)),
+        primary key (id)
+    )" via JDBC [ERROR: operator does not exist: date >= integer
+  İpucu: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Position: 323]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create table customer (
+        id bigserial not null,
+        created_by varchar(255),
+        created_date timestamp(6),
+        date timestamp(6),
+        uptade_by varchar(255),
+        uptade_date timestamp(6),
+        city varchar(255) not null,
+        date_of_birth date not null check (date_of_birth>=18),
+        driver_license_number varchar(255) not null,
+        email varchar(255) not null,
+        first_name varchar(255) not null,
+        id_number varchar(255) not null,
+        last_name varchar(255) not null,
+        phone varchar(255) not null,
+        street varchar(255) not null,
+        zipcode integer not null check ((zipcode<=99999) and (zipcode>=10000)),
+        primary key (id)
+    )" via JDBC [ERROR: operator does not exist: date >= integer
+  İpucu: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Position: 323]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at hakan.rentacar.RentACarApplication.main(RentACarApplication.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.1.jar:3.1.1]
+Caused by: org.postgresql.util.PSQLException: ERROR: operator does not exist: date >= integer
+  İpucu: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Position: 323
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292) ~[postgresql-42.6.0.jar:42.6.0]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	... 41 common frames omitted
+
+2023-07-07T00:11:32.712+03:00  WARN 5156 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create table rental (
+        id bigserial not null,
+        created_by varchar(255),
+        created_date timestamp(6),
+        date timestamp(6),
+        uptade_by varchar(255),
+        uptade_date timestamp(6),
+        end date not null,
+        extra_costs integer,
+        note varchar(255),
+        start date not null,
+        car_id bigint not null,
+        customer_id bigint not null,
+        primary key (id)
+    )" via JDBC [ERROR: syntax error at or near "end"
+  Position: 236]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create table rental (
+        id bigserial not null,
+        created_by varchar(255),
+        created_date timestamp(6),
+        date timestamp(6),
+        uptade_by varchar(255),
+        uptade_date timestamp(6),
+        end date not null,
+        extra_costs integer,
+        note varchar(255),
+        start date not null,
+        car_id bigint not null,
+        customer_id bigint not null,
+        primary key (id)
+    )" via JDBC [ERROR: syntax error at or near "end"
+  Position: 236]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at hakan.rentacar.RentACarApplication.main(RentACarApplication.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.1.jar:3.1.1]
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "end"
+  Position: 236
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292) ~[postgresql-42.6.0.jar:42.6.0]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	... 41 common frames omitted
+
+2023-07-07T00:11:32.716+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-07-07T00:11:32.716+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "customer" does not exist, skipping
+2023-07-07T00:11:32.718+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-07-07T00:11:32.718+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "customer" does not exist, skipping
+2023-07-07T00:11:32.718+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-07-07T00:11:32.718+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "customer" does not exist, skipping
+2023-07-07T00:11:32.718+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-07-07T00:11:32.718+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "customer" does not exist, skipping
+2023-07-07T00:11:32.768+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-07-07T00:11:32.768+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "rental" does not exist, skipping
+2023-07-07T00:11:32.768+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-07-07T00:11:32.768+03:00  WARN 5156 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "rental" does not exist, skipping
+2023-07-07T00:11:32.769+03:00  INFO 5156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07T00:11:32.859+03:00  WARN 5156 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07T00:11:33.000+03:00  INFO 5156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-07T00:11:33.003+03:00  INFO 5156 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-07T00:11:33.022+03:00  INFO 5156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-07T00:11:33.030+03:00  INFO 5156 --- [restartedMain] hakan.rentacar.RentACarApplication       : Started RentACarApplication in 1.176 seconds (process running for 1091.313)
+2023-07-07T00:11:33.032+03:00  INFO 5156 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

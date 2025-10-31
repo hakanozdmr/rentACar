@@ -10,10 +10,17 @@ import java.util.List;
 public interface ModelService {
     List<ModelDto> getAll();
 
+    ModelDto getById(Long id);
+
     ModelDto add(ModelDto modelDto);
+
+    ModelDto update(ModelDto modelDto);
+
+    ModelDto delete(Long id);
+
+    List<ModelDto> getByBrandId(Long brandId);
 
     //model mapper
     public ModelDto EntityToDto(Model model);
     public Model DtoToEntity(ModelDto modelDto);
-
 }

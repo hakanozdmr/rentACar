@@ -18,7 +18,7 @@ import java.util.Date;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"created_date,uptade_date"},allowGetters = true)
+@JsonIgnoreProperties(value = {"created_date,update_date"},allowGetters = true)
 public class BaseEntity {
 
     @Id
@@ -33,14 +33,14 @@ public class BaseEntity {
     @CreatedDate
     private Date createdDate;
 
-    @Column(name ="uptade_By")
+    @Column(name ="update_By")
     @LastModifiedBy
     @Nullable
-    private String uptadeBy;
-    @Column(name ="uptade_date")
+    private String updateBy;
+    @Column(name ="update_date")
     @LastModifiedDate
     @Nullable
-    private Date uptadeDate;
+    private Date updateDate;
 
     @Column(updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

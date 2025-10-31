@@ -1,12 +1,11 @@
 package hakan.rentacar.entities.concretes;
 
-import lombok.*;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+
 import java.time.LocalDate;
-import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Customer object model (JPA entity).
@@ -18,6 +17,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "customers")
 public class Customer extends BaseEntity {
 
     @NotBlank
@@ -35,7 +35,7 @@ public class Customer extends BaseEntity {
     @Min(value = 10000)
     @Max(value = 99999)
     @Column(nullable = false)
-    private int zipcode;
+    private Integer zipcode;
 
     @NotBlank
     @Column(nullable = false)
@@ -51,7 +51,6 @@ public class Customer extends BaseEntity {
     private String email;
 
     @NotNull
-    @Min(value = 18)
     @Column(nullable = false)
     private LocalDate dateOfBirth;
 
@@ -63,4 +62,10 @@ public class Customer extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String driverLicenseNumber;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Rental> rentals;
 }

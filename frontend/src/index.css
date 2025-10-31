@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  margin-bottom: 30px;
+  color: #1976d2;
+  font-weight: 300;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.status-available {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.status-rented {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.status-maintenance {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.search-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .action-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .search-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  color-scheme: dark;
+}
+
+.dark-theme body {
+  background-color: #121212 !important;
+  color: #ffffff;
+}
+
+.dark-theme .MuiPaper-root {
+  background-color: #1e1e1e !important;
+  color: #ffffff;
+}
+
+.dark-theme .MuiAppBar-root {
+  background-color: #2d2d2d !important;
+}
+
+.dark-theme .MuiDrawer-paper {
+  background-color: #1e1e1e !important;
+}
+
+.dark-theme .MuiTableCell-root {
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+
+.dark-theme .MuiTableHead-root .MuiTableCell-root {
+  background-color: #2d2d2d !important;
+}
+
+.dark-theme .MuiTextField-root .MuiInputBase-root {
+  background-color: #2d2d2d !important;
+  color: #ffffff;
+}
+
+.dark-theme .MuiSelect-root {
+  background-color: #2d2d2d !important;
+  color: #ffffff;
+}
+
+.dark-theme .MuiChip-root {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+}
+
+/* Chart.js Dark Theme */
+.dark-theme canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+

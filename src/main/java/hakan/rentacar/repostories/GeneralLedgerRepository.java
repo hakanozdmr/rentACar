@@ -71,3 +71,5 @@ public interface GeneralLedgerRepository extends JpaRepository<GeneralLedger, Lo
 }
 
 
+
+

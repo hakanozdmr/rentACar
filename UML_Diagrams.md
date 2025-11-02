@@ -797,3 +797,5 @@ package "hakan.rentacar" {
 Bu UML diagramları sistemin tüm önemli bileşenlerini, ilişkilerini ve mimarisini göstermektedir. Her diagram farklı bir perspektiften sistemi analiz etmek için kullanılabilir.
 
 
+
+

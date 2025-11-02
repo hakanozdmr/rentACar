@@ -5,6 +5,7 @@ import hakan.rentacar.entities.concretes.Reservation;
 import hakan.rentacar.entities.concretes.Rental;
 import hakan.rentacar.entities.concretes.Payment;
 import hakan.rentacar.entities.concretes.Invoice;
+import hakan.rentacar.entities.concretes.Contract;
 import hakan.rentacar.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -738,5 +739,107 @@ public class EmailServiceImpl implements EmailService {
     private String formatDateTime(LocalDateTime dateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         return dateTime.format(formatter);
+    }
+
+    @Override
+    public void sendContractEmail(Customer customer, Contract contract) {
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        String subject = "Sözleşme - " + contract.getContractNumber();
+        
+        String htmlContent = String.format("""
+            <div class="message">
+                <p>Merhaba %s,</p>
+                <p>Kiralamanız için sözleşme oluşturulmuştur.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>📄 Sözleşme Bilgileri</h3>
+                <div class="info-row"><span>Sözleşme No:</span> <strong>%s</strong></div>
+                <div class="info-row"><span>İmza Tarihi:</span> <strong>%s</strong></div>
+                <div class="info-row"><span>Durum:</span> <strong>%s</strong></div>
+                %s
+            </div>
+            
+            <div class="message">
+                <p>İyi sürüşler dileriz! 🚗</p>
+            </div>
+            """,
+            customerName,
+            contract.getContractNumber(),
+            formatDate(contract.getSignedDate()),
+            contract.getStatus().getDisplayName(),
+            contract.getExpiryDate() != null ? 
+                String.format("<div class=\"info-row\"><span>Son Geçerlilik:</span> <strong>%s</strong></div>", 
+                    formatDate(contract.getExpiryDate())) : ""
+        );
+
+        sendHtmlEmail(customer.getEmail(), subject, "Sözleşme Bilgisi", customerName, htmlContent);
+    }
+
+    @Override
+    public void sendContractSignatureRequest(Customer customer, Contract contract) {
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        String subject = "Sözleşme İmzası Gerekli - " + contract.getContractNumber();
+        
+        String htmlContent = String.format("""
+            <div class="message">
+                <p>Merhaba %s,</p>
+                <p>Sözleşmenizi imzalamanız gerekmektedir.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>✍️ İmzalanacak Sözleşme</h3>
+                <div class="info-row"><span>Sözleşme No:</span> <strong>%s</strong></div>
+                <div class="info-row"><span>İmza Tarihi:</span> <strong>%s</strong></div>
+                <div class="info-row"><span>Durum:</span> <strong>%s</strong></div>
+            </div>
+            
+            <div class="message">
+                <p>Sözleşmeyi imzalamak için lütfen şubelerimize uğrayınız veya online imza sistemini kullanınız.</p>
+                <p>İyi sürüşler dileriz! 🚗</p>
+            </div>
+            """,
+            customerName,
+            contract.getContractNumber(),
+            formatDate(contract.getSignedDate()),
+            contract.getStatus().getDisplayName()
+        );
+
+        sendHtmlEmail(customer.getEmail(), subject, "Sözleşme İmzası Gerekli", customerName, htmlContent);
+    }
+
+    @Override
+    public void sendContractSignedNotification(Customer customer, Contract contract) {
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        String subject = "Sözleşme İmzalandı - " + contract.getContractNumber();
+        
+        String htmlContent = String.format("""
+            <div class="message">
+                <p>Merhaba %s,</p>
+                <p>Sözleşmeniz başarıyla imzalanmıştır.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>✅ İmzalanan Sözleşme</h3>
+                <div class="info-row"><span>Sözleşme No:</span> <strong>%s</strong></div>
+                <div class="info-row"><span>İmza Tarihi:</span> <strong>%s</strong></div>
+                <div class="info-row"><span>Durum:</span> <strong>%s</strong></div>
+                %s
+            </div>
+            
+            <div class="message">
+                <p>Kiralamanız hazır! İyi sürüşler dileriz! 🚗</p>
+            </div>
+            """,
+            customerName,
+            contract.getContractNumber(),
+            formatDate(contract.getSignedDate()),
+            contract.getStatus().getDisplayName(),
+            contract.getSignedAt() != null ? 
+                String.format("<div class=\"info-row\"><span>İmza Zamanı:</span> <strong>%s</strong></div>", 
+                    formatDateTime(contract.getSignedAt())) : ""
+        );
+
+        sendHtmlEmail(customer.getEmail(), subject, "Sözleşme İmzalandı", customerName, htmlContent);
     }
 }

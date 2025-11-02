@@ -8,6 +8,10 @@ import hakan.rentacar.entities.concretes.Invoice;
 import hakan.rentacar.entities.concretes.GeneralLedger;
 import hakan.rentacar.entities.concretes.TaxCalculation;
 import hakan.rentacar.entities.concretes.AuditLog;
+import hakan.rentacar.entities.concretes.Contract;
+import hakan.rentacar.entities.concretes.ContractTemplate;
+import hakan.rentacar.entities.concretes.VehicleConditionCheck;
+import hakan.rentacar.entities.concretes.RentalDocument;
 import hakan.rentacar.entities.dtos.ReservationDto;
 import hakan.rentacar.entities.dtos.NotificationDto;
 import hakan.rentacar.entities.dtos.ReservationRatingDto;
@@ -16,6 +20,10 @@ import hakan.rentacar.entities.dtos.InvoiceDto;
 import hakan.rentacar.entities.dtos.GeneralLedgerDto;
 import hakan.rentacar.entities.dtos.TaxCalculationDto;
 import hakan.rentacar.entities.dtos.AuditLogDto;
+import hakan.rentacar.entities.dtos.ContractDto;
+import hakan.rentacar.entities.dtos.ContractTemplateDto;
+import hakan.rentacar.entities.dtos.VehicleConditionCheckDto;
+import hakan.rentacar.entities.dtos.RentalDocumentDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.context.annotation.Bean;
@@ -137,6 +145,36 @@ public class ModelMapperBean {
             protected void configure() {
                 // Skip fields that are manually set
                 skip(destination.getActionTypeDisplayName());
+            }
+        });
+        
+        // Configure Contract to ContractDto mapping
+        modelMapper.addMappings(new PropertyMap<Contract, ContractDto>() {
+            @Override
+            protected void configure() {
+                // Skip fields that are manually set from relationships
+                skip(destination.getCustomerName());
+                skip(destination.getRentalInfo());
+                skip(destination.getTemplateName());
+            }
+        });
+        
+        // Configure VehicleConditionCheck to VehicleConditionCheckDto mapping
+        modelMapper.addMappings(new PropertyMap<VehicleConditionCheck, VehicleConditionCheckDto>() {
+            @Override
+            protected void configure() {
+                // Skip fields that are manually set from relationships
+                skip(destination.getRentalInfo());
+                skip(destination.getCarPlate());
+            }
+        });
+        
+        // Configure RentalDocument to RentalDocumentDto mapping
+        modelMapper.addMappings(new PropertyMap<RentalDocument, RentalDocumentDto>() {
+            @Override
+            protected void configure() {
+                // Skip fields that are manually set from relationships
+                skip(destination.getRentalInfo());
             }
         });
         

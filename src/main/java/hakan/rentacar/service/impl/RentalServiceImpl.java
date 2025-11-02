@@ -80,7 +80,8 @@ public class RentalServiceImpl implements RentalService {
         );
         
         Rental rental = DtoToEntity(rentalDto);
-        rentalRepository.save(rental);
+        Rental savedRental = rentalRepository.save(rental);
+        rentalDto.setId(savedRental.getId());
         return rentalDto;
     }
 

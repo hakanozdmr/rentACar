@@ -64,3 +64,5 @@ COMMENT ON COLUMN audit_logs.timestamp IS 'İşlem zamanı';
 -- GRANT USAGE, SELECT ON SEQUENCE audit_logs_id_seq TO your_app_user;
 
 
+
+

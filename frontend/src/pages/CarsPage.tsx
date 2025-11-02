@@ -593,8 +593,31 @@ const CarsPage: React.FC = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredCars.map((car) => (
-                <TableRow key={car.id}>
+              {filteredCars.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={10} align="center" sx={{ py: 8 }}>
+                    <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
+                      <Typography variant="h6" color="text.secondary">
+                        {stateFilter !== 'all' || segmentFilter !== 'all' || transmissionFilter !== 'all' || searchTerm
+                          ? 'Arama kriterlerinize uygun araç bulunamadı'
+                          : 'Henüz araç kaydı bulunmamaktadır'}
+                      </Typography>
+                      {!(stateFilter !== 'all' || segmentFilter !== 'all' || transmissionFilter !== 'all' || searchTerm) && (
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          startIcon={<AddIcon />}
+                          onClick={() => setOpen(true)}
+                        >
+                          Yeni Araç Ekle
+                        </Button>
+                      )}
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              ) : (
+                filteredCars.map((car) => (
+                  <TableRow key={car.id}>
                   <TableCell>{car.id}</TableCell>
                   <TableCell>
                     <Box display="flex" alignItems="center" gap={1}>
@@ -679,13 +702,35 @@ const CarsPage: React.FC = () => {
                     </IconButton>
                   </TableCell>
                 </TableRow>
-              ))}
+              ))
+              )}
             </TableBody>
           </Table>
         </TableContainer>
       ) : (
         <Grid container spacing={3}>
-          {filteredCars.map((car) => (
+          {filteredCars.length === 0 ? (
+            <Grid item xs={12}>
+              <Box display="flex" flexDirection="column" alignItems="center" gap={2} sx={{ py: 8 }}>
+                <Typography variant="h6" color="text.secondary">
+                  {stateFilter !== 'all' || segmentFilter !== 'all' || transmissionFilter !== 'all' || searchTerm
+                    ? 'Arama kriterlerinize uygun araç bulunamadı'
+                    : 'Henüz araç kaydı bulunmamaktadır'}
+                </Typography>
+                {!(stateFilter !== 'all' || segmentFilter !== 'all' || transmissionFilter !== 'all' || searchTerm) && (
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<AddIcon />}
+                    onClick={() => setOpen(true)}
+                  >
+                    Yeni Araç Ekle
+                  </Button>
+                )}
+              </Box>
+            </Grid>
+          ) : (
+            filteredCars.map((car) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={car.id}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 {car.images && car.images.length > 0 ? (
@@ -792,7 +837,8 @@ const CarsPage: React.FC = () => {
                 </Box>
               </Card>
             </Grid>
-          ))}
+          ))
+          )}
         </Grid>
       )}
 

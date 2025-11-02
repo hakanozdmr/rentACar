@@ -55,3 +55,5 @@ INSERT INTO payments (rental_id, customer_id, amount, method, status, paid_at, d
 ON CONFLICT DO NOTHING;
 
 
+
+

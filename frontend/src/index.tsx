@@ -14,6 +14,21 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();
+// Performance monitoring
+reportWebVitals((metric) => {
+  // Enhanced logging in development
+  if (process.env.NODE_ENV === 'development') {
+    console.log('[Performance]', {
+      name: metric.name,
+      value: metric.value,
+      id: metric.id,
+    });
+  }
+
+  // TODO: Send to analytics service in production
+  // if (process.env.NODE_ENV === 'production') {
+  //   // Send to your analytics service
+  // }
+});
 
 

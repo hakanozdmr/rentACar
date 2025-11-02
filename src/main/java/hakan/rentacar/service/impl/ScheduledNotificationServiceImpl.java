@@ -4,6 +4,7 @@ import hakan.rentacar.entities.concretes.Reservation;
 import hakan.rentacar.entities.concretes.Rental;
 import hakan.rentacar.repostories.ReservationRepository;
 import hakan.rentacar.repostories.RentalRepository;
+import hakan.rentacar.service.ContractService;
 import hakan.rentacar.service.NotificationService;
 import hakan.rentacar.service.ScheduledNotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class ScheduledNotificationServiceImpl implements ScheduledNotificationSe
 
     @Autowired
     private RentalRepository rentalRepository;
+
+    @Autowired
+    private ContractService contractService;
 
     @Override
     @Scheduled(cron = "0 0 9 * * *") // Run every day at 9 AM
@@ -103,6 +107,17 @@ public class ScheduledNotificationServiceImpl implements ScheduledNotificationSe
             System.out.println("Processed pending notifications");
         } catch (Exception e) {
             System.err.println("Error processing pending notifications: " + e.getMessage());
+        }
+    }
+
+    @Override
+    @Scheduled(cron = "0 0 1 * * ?") // Run every day at 1 AM
+    public void processContractExpirations() {
+        try {
+            contractService.markAsExpired();
+            System.out.println("Processed contract expirations");
+        } catch (Exception e) {
+            System.err.println("Error processing contract expirations: " + e.getMessage());
         }
     }
 }

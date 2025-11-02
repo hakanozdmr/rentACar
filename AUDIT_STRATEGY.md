@@ -191,3 +191,5 @@ Aşağıdaki service metodlarına audit log eklenmelidir:
 Audit logging sistemi, sistem güvenliği ve uyumluluğu için kritik öneme sahiptir. Yukarıdaki stratejiye göre tüm kritik işlemler audit edilmeli ve düzenli olarak izlenmelidir.
 
 
+
+

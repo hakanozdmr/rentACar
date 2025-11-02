@@ -54,6 +54,7 @@ import { carsApi, customersApi, rentalsApi, brandsApi, analyticsApi, DashboardSt
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useSnackbar } from '../contexts/SnackbarContext';
+import LoadingSkeleton from '../components/LoadingSkeleton';
 import dayjs from 'dayjs';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';

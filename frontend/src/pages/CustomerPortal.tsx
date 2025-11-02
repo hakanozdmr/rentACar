@@ -15,9 +15,11 @@ import {
   Star,
   Notifications,
   Person,
-  History
+  History,
+  Add
 } from '@mui/icons-material';
 import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import CustomerProfile from '../components/CustomerProfile';
 import ReservationManagement from '../components/ReservationManagement';
 import NotificationCenter from '../components/NotificationCenter';
@@ -52,11 +54,16 @@ function TabPanel(props: TabPanelProps) {
 
 const CustomerPortal: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState(0);
   const [unreadCount, setUnreadCount] = useState(0);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setCurrentTab(newValue);
+  };
+
+  const handleNewRental = () => {
+    navigate('/customer-rental');
   };
 
   return (
@@ -113,6 +120,12 @@ const CustomerPortal: React.FC = () => {
             label="Bildirimler" 
             id="customer-tab-4"
             aria-controls="customer-tabpanel-4"
+          />
+          <Tab 
+            icon={<Add />}
+            label="Yeni Kiralama"
+            onClick={handleNewRental}
+            sx={{ color: 'primary.main', fontWeight: 'bold' }}
           />
         </Tabs>
       </Box>

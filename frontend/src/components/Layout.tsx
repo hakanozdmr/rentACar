@@ -40,6 +40,10 @@ import {
   Receipt as InvoiceIcon,
   Assessment as ReportsIcon,
   History as AuditIcon,
+  Description as ContractIcon,
+  Upload as DocumentIcon,
+  CarRepair as InspectionIcon,
+  Add as AddIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -58,8 +62,12 @@ const adminMenuItems = [
   { text: 'Modeller', icon: <ModelIcon />, path: '/models' },
   { text: 'Araçlar', icon: <CarIcon />, path: '/cars' },
   { text: 'Müşteriler', icon: <CustomerIcon />, path: '/customers' },
+  { text: 'Yeni Kiralama', icon: <AddIcon />, path: '/rental-workflow' },
   { text: 'Kiralama', icon: <RentalIcon />, path: '/rentals' },
   { text: 'Rezervasyonlar', icon: <ReservationIcon />, path: '/reservations' },
+  { text: 'Sözleşmeler', icon: <ContractIcon />, path: '/contracts' },
+  { text: 'Belgeler', icon: <DocumentIcon />, path: '/documents' },
+  { text: 'Araç Kontrolleri', icon: <InspectionIcon />, path: '/inspections' },
   { text: 'Ödemeler', icon: <PaymentIcon />, path: '/payments' },
   { text: 'Faturalar', icon: <InvoiceIcon />, path: '/invoices' },
   { text: 'Mali Raporlar', icon: <ReportsIcon />, path: '/financial-reports' },

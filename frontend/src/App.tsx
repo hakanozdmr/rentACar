@@ -20,6 +20,12 @@ import RegisterPage from './pages/RegisterPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import SettingsPage from './pages/SettingsPage';
 import CustomerPortal from './pages/CustomerPortal';
+import ContractManagementPage from './pages/ContractManagementPage';
+import DocumentManagementPage from './pages/DocumentManagementPage';
+import VehicleInspectionPage from './pages/VehicleInspectionPage';
+import RentalWorkflowPage from './pages/RentalWorkflowPage';
+import CustomerRentalWorkflowPage from './pages/CustomerRentalWorkflowPage';
+import ErrorBoundary from './components/ErrorBoundary';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { SnackbarProvider } from './contexts/SnackbarContext';
 
@@ -51,6 +57,8 @@ const queryClient = new QueryClient({
     queries: {
       retry: 1,
       refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      cacheTime: 10 * 60 * 1000, // 10 minutes
     },
   },
 });
@@ -86,6 +94,10 @@ const AppRoutes: React.FC = () => {
           <Route path="/customers" element={<ProtectedRoute><CustomersPage /></ProtectedRoute>} />
           <Route path="/rentals" element={<ProtectedRoute><RentalsPage /></ProtectedRoute>} />
           <Route path="/reservations" element={<ProtectedRoute><ReservationsPage /></ProtectedRoute>} />
+          <Route path="/rental-workflow" element={<ProtectedRoute><RentalWorkflowPage /></ProtectedRoute>} />
+          <Route path="/contracts" element={<ProtectedRoute><ContractManagementPage /></ProtectedRoute>} />
+          <Route path="/documents" element={<ProtectedRoute><DocumentManagementPage /></ProtectedRoute>} />
+          <Route path="/inspections" element={<ProtectedRoute><VehicleInspectionPage /></ProtectedRoute>} />
           <Route path="/payments" element={<ProtectedRoute><PaymentsPage /></ProtectedRoute>} />
           <Route path="/invoices" element={<ProtectedRoute><InvoicesPage /></ProtectedRoute>} />
           <Route path="/financial-reports" element={<ProtectedRoute><FinancialReportsPage /></ProtectedRoute>} />
@@ -93,6 +105,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/analytics" element={<ProtectedRoute><AnalyticsPage /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
           <Route path="/customer-portal" element={<ProtectedRoute><CustomerPortal /></ProtectedRoute>} />
+          <Route path="/customer-rental" element={<ProtectedRoute><CustomerRentalWorkflowPage /></ProtectedRoute>} />
           <Route path="/login" element={<Navigate to="/" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -103,18 +116,20 @@ const AppRoutes: React.FC = () => {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
-          <AuthProvider>
-            <SnackbarProvider>
-              <AppRoutes />
-            </SnackbarProvider>
-          </AuthProvider>
-        </Router>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Router>
+            <AuthProvider>
+              <SnackbarProvider>
+                <AppRoutes />
+              </SnackbarProvider>
+            </AuthProvider>
+          </Router>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -5,6 +5,7 @@ import hakan.rentacar.entities.concretes.Reservation;
 import hakan.rentacar.entities.concretes.Rental;
 import hakan.rentacar.entities.concretes.Payment;
 import hakan.rentacar.entities.concretes.Invoice;
+import hakan.rentacar.entities.concretes.Contract;
 
 public interface EmailService {
     void sendReservationConfirmation(Customer customer, Reservation reservation);
@@ -24,6 +25,11 @@ public interface EmailService {
     // Invoice-related email methods
     void sendInvoiceNotification(Customer customer, Invoice invoice);
     void sendOverdueInvoiceNotification(Customer customer, Invoice invoice);
+    
+    // Contract-related email methods
+    void sendContractEmail(Customer customer, Contract contract);
+    void sendContractSignatureRequest(Customer customer, Contract contract);
+    void sendContractSignedNotification(Customer customer, Contract contract);
     
     void sendCustomEmail(String to, String subject, String content);
 }

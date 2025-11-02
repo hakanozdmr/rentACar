@@ -35,13 +35,16 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import { rentalsApi, carsApi, customersApi, Rental, Car, Customer } from '../services/api';
+import LoadingSkeleton from '../components/LoadingSkeleton';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 
 dayjs.extend(isBetween);
 
 const RentalsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [viewingRental, setViewingRental] = useState<Rental | null>(null);
   const [editingRental, setEditingRental] = useState<Rental | null>(null);
@@ -241,11 +244,7 @@ const RentalsPage: React.FC = () => {
   };
 
   if (isLoading) {
-    return (
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
-        <CircularProgress />
-      </Box>
-    );
+    return <LoadingSkeleton variant="table" rows={8} cols={8} />;
   }
 
   return (
@@ -257,10 +256,11 @@ const RentalsPage: React.FC = () => {
           </Typography>
           <Button
             variant="contained"
+            color="primary"
             startIcon={<AddIcon />}
-            onClick={() => handleOpen()}
+            onClick={() => navigate('/rental-workflow')}
           >
-            Yeni Kiralama
+            Yeni Kiralama (Workflow)
           </Button>
         </Box>
 
@@ -302,57 +302,80 @@ const RentalsPage: React.FC = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredRentals.map((rental) => {
-                return (
-                  <TableRow key={rental.id}>
-                    <TableCell>{rental.id}</TableCell>
-                    <TableCell>
-                      <Typography variant="body2">
-                        {rental.customerFirstName} {rental.customerLastName}
+              {filteredRentals.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={8} align="center" sx={{ py: 8 }}>
+                    <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
+                      <Typography variant="h6" color="text.secondary">
+                        {statusFilter === 'all' ? 'Henüz kiralama kaydı bulunmamaktadır' 
+                         : statusFilter === 'active' ? 'Aktif kiralama bulunmamaktadır'
+                         : statusFilter === 'completed' ? 'Tamamlanan kiralama bulunmamaktadır'
+                         : 'Yaklaşan kiralama bulunmamaktadır'}
                       </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" fontWeight="bold">
-                        {rental.carPlate}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>{dayjs(rental.start).format('DD.MM.YYYY')}</TableCell>
-                    <TableCell>{dayjs(rental.end).format('DD.MM.YYYY')}</TableCell>
-                    <TableCell>
-                      {getStatusChip(rental)}
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" fontWeight="bold">
-                        {rental.totalPrice?.toLocaleString('tr-TR', {
-                          style: 'currency',
-                          currency: 'TRY'
-                        })}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="center">
-                      <IconButton
-                        color="info"
-                        onClick={() => handleOpen(rental, true)}
-                        size="small"
-                      >
-                        <ViewIcon />
-                      </IconButton>
-                      <IconButton
+                      <Button
+                        variant="contained"
                         color="primary"
-                        onClick={() => handleOpen(rental)}
+                        startIcon={<AddIcon />}
+                        onClick={() => navigate('/rental-workflow')}
                       >
-                        <EditIcon />
-                      </IconButton>
-                      <IconButton
-                        color="error"
-                        onClick={() => handleDelete(rental.id!)}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+                        Yeni Kiralama Oluştur
+                      </Button>
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              ) : (
+                filteredRentals.map((rental) => {
+                  return (
+                    <TableRow key={rental.id}>
+                      <TableCell>{rental.id}</TableCell>
+                      <TableCell>
+                        <Typography variant="body2">
+                          {rental.customerFirstName} {rental.customerLastName}
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography variant="body2" fontWeight="bold">
+                          {rental.carPlate}
+                        </Typography>
+                      </TableCell>
+                      <TableCell>{dayjs(rental.start).format('DD.MM.YYYY')}</TableCell>
+                      <TableCell>{dayjs(rental.end).format('DD.MM.YYYY')}</TableCell>
+                      <TableCell>
+                        {getStatusChip(rental)}
+                      </TableCell>
+                      <TableCell>
+                        <Typography variant="body2" fontWeight="bold">
+                          {rental.totalPrice?.toLocaleString('tr-TR', {
+                            style: 'currency',
+                            currency: 'TRY'
+                          })}
+                        </Typography>
+                      </TableCell>
+                      <TableCell align="center">
+                        <IconButton
+                          color="info"
+                          onClick={() => handleOpen(rental, true)}
+                          size="small"
+                        >
+                          <ViewIcon />
+                        </IconButton>
+                        <IconButton
+                          color="primary"
+                          onClick={() => handleOpen(rental)}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton
+                          color="error"
+                          onClick={() => handleDelete(rental.id!)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })
+              )}
             </TableBody>
           </Table>
         </TableContainer>

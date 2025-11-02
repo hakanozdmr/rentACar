@@ -121,3 +121,5 @@ SELECT setval('general_ledger_id_seq', (SELECT MAX(id) FROM general_ledger));
 SELECT setval('tax_calculations_id_seq', (SELECT MAX(id) FROM tax_calculations));
 
 
+
+

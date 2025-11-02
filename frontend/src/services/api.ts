@@ -845,4 +845,173 @@ export const auditLogsApi = {
     api.delete(`/audit-logs/cleanup?daysToKeep=${daysToKeep}`),
 };
 
+// ==============================================
+// CONTRACT MANAGEMENT INTERFACES & API
+// ==============================================
+
+export interface Contract {
+  id?: number;
+  rentalId: number;
+  customerId: number;
+  templateId?: number;
+  contractNumber: string;
+  signedDate: string;
+  signedAt?: string;
+  status: 'DRAFT' | 'PENDING_SIGNATURE' | 'SIGNED' | 'EXPIRED' | 'CANCELLED' | 'VERIFIED';
+  terms?: string;
+  conditions?: string;
+  customerSignature?: string;
+  companySignature?: string;
+  signedBy?: string;
+  eSignatureVerifiedAt?: string;
+  eSignatureHash?: string;
+  pdfPath?: string;
+  witnessName?: string;
+  expiryDate?: string;
+  notes?: string;
+  customerName?: string;
+  rentalInfo?: string;
+  templateName?: string;
+}
+
+export interface ContractTemplate {
+  id?: number;
+  name: string;
+  description?: string;
+  templateKey: string;
+  content: string;
+  isActive: boolean;
+  isDefault: boolean;
+  version?: number;
+  variables?: string;
+  lastUsedAt?: string;
+  usageCount?: number;
+}
+
+export interface RentalDocument {
+  id?: number;
+  rentalId: number;
+  fileName: string;
+  fileType: string;
+  fileSize: number;
+  filePath: string;
+  documentType: 'DELIVERY_PHOTO' | 'PICKUP_PHOTO' | 'DAMAGE_REPORT' | 'CONTRACT' | 'ID_CARD' | 'DRIVER_LICENSE' | 'INSURANCE' | 'CONDITION_CHECK' | 'SIGNATURE' | 'OTHER';
+  description?: string;
+  uploadedAt?: string;
+  uploadedBy?: string;
+  thumbnailPath?: string;
+  isVerified: boolean;
+  verifiedAt?: string;
+  verifiedBy?: string;
+  metadata?: string;
+  rentalInfo?: string;
+}
+
+export interface VehicleConditionCheck {
+  id?: number;
+  rentalId: number;
+  carId: number;
+  checkType: 'TESLIM' | 'TESLIM_ALMA';
+  mileageAtCheck: number;
+  fuelLevel: number;
+  bodyHasDamage: boolean;
+  bodyDamageDescription?: string;
+  interiorHasDamage: boolean;
+  interiorDamageDescription?: string;
+  windowsHaveDamage: boolean;
+  windowsDamageDescription?: string;
+  tiresHaveDamage: boolean;
+  tiresDamageDescription?: string;
+  hasScratches: boolean;
+  scratchesDescription?: string;
+  damageCost?: number;
+  performedBy: string;
+  performedAt: string;
+  customerNote?: string;
+  staffNote?: string;
+  isConfirmed: boolean;
+  confirmedAt?: string;
+  needsMaintenance: boolean;
+  maintenanceNote?: string;
+  rentalInfo?: string;
+  carPlate?: string;
+}
+
+// Contracts API
+export const contractsApi = {
+  getAll: () => api.get<Contract[]>('/contracts'),
+  getById: (id: number) => api.get<Contract>(`/contracts/${id}`),
+  getByContractNumber: (contractNumber: string) => api.get<Contract>(`/contracts/number/${contractNumber}`),
+  getByRentalId: (rentalId: number) => api.get<Contract[]>(`/contracts/rental/${rentalId}`),
+  getByCustomerId: (customerId: number) => api.get<Contract[]>(`/contracts/customer/${customerId}`),
+  getByStatus: (status: string) => api.get<Contract[]>(`/contracts/status/${status}`),
+  create: (contract: Contract) => api.post<Contract>('/contracts', contract),
+  update: (contract: Contract) => api.put<Contract>('/contracts', contract),
+  delete: (id: number) => api.delete(`/contracts/${id}`),
+  signContract: (id: number, customerSignature: string, companySignature: string) => 
+    api.post<Contract>(`/contracts/${id}/sign?customerSignature=${encodeURIComponent(customerSignature)}&companySignature=${encodeURIComponent(companySignature)}`),
+  verifyESignature: (id: number, eSignatureHash: string) => 
+    api.post<Contract>(`/contracts/${id}/verify?eSignatureHash=${eSignatureHash}`),
+  markAsExpired: () => api.post('/contracts/expire'),
+};
+
+// Contract Templates API
+export const contractTemplatesApi = {
+  getAll: () => api.get<ContractTemplate[]>('/contract-templates'),
+  getActive: () => api.get<ContractTemplate[]>('/contract-templates/active'),
+  getDefault: () => api.get<ContractTemplate>('/contract-templates/default'),
+  getById: (id: number) => api.get<ContractTemplate>(`/contract-templates/${id}`),
+  getByTemplateKey: (templateKey: string) => api.get<ContractTemplate>(`/contract-templates/key/${templateKey}`),
+  create: (template: ContractTemplate) => api.post<ContractTemplate>('/contract-templates', template),
+  update: (template: ContractTemplate) => api.put<ContractTemplate>('/contract-templates', template),
+  delete: (id: number) => api.delete(`/contract-templates/${id}`),
+  setAsDefault: (id: number) => api.post<ContractTemplate>(`/contract-templates/${id}/set-default`),
+  replaceVariables: (content: string, variables: Record<string, string>) => 
+    api.post<string>('/contract-templates/replace-variables', variables, {
+      params: { content }
+    }),
+};
+
+// Rental Documents API
+export const rentalDocumentsApi = {
+  getAll: () => api.get<RentalDocument[]>('/rental-documents'),
+  getById: (id: number) => api.get<RentalDocument>(`/rental-documents/${id}`),
+  getByRentalId: (rentalId: number) => api.get<RentalDocument[]>(`/rental-documents/rental/${rentalId}`),
+  getByRentalIdAndType: (rentalId: number, documentType: string) => 
+    api.get<RentalDocument[]>(`/rental-documents/rental/${rentalId}/type/${documentType}`),
+  create: (document: RentalDocument) => api.post<RentalDocument>('/rental-documents', document),
+  update: (document: RentalDocument) => api.put<RentalDocument>('/rental-documents', document),
+  delete: (id: number) => api.delete(`/rental-documents/${id}`),
+  verify: (id: number, verifiedBy: string) => 
+    api.post<RentalDocument>(`/rental-documents/${id}/verify?verifiedBy=${encodeURIComponent(verifiedBy)}`),
+  uploadFile: (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    return api.post<string>('/rental-documents/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+};
+
+// Vehicle Condition Checks API
+export const vehicleConditionChecksApi = {
+  getAll: () => api.get<VehicleConditionCheck[]>('/vehicle-condition-checks'),
+  getById: (id: number) => api.get<VehicleConditionCheck>(`/vehicle-condition-checks/${id}`),
+  getByRentalId: (rentalId: number) => api.get<VehicleConditionCheck[]>(`/vehicle-condition-checks/rental/${rentalId}`),
+  getByCarId: (carId: number) => api.get<VehicleConditionCheck[]>(`/vehicle-condition-checks/car/${carId}`),
+  getByCheckType: (checkType: string) => api.get<VehicleConditionCheck[]>(`/vehicle-condition-checks/type/${checkType}`),
+  create: (check: VehicleConditionCheck) => api.post<VehicleConditionCheck>('/vehicle-condition-checks', check),
+  update: (check: VehicleConditionCheck) => api.put<VehicleConditionCheck>('/vehicle-condition-checks', check),
+  delete: (id: number) => api.delete(`/vehicle-condition-checks/${id}`),
+  getLatestDeliveryCheck: (rentalId: number) => 
+    api.get<VehicleConditionCheck>(`/vehicle-condition-checks/rental/${rentalId}/latest-delivery`),
+  getLatestPickupCheck: (rentalId: number) => 
+    api.get<VehicleConditionCheck>(`/vehicle-condition-checks/rental/${rentalId}/latest-pickup`),
+  confirmByCustomer: (id: number) => api.post<VehicleConditionCheck>(`/vehicle-condition-checks/${id}/confirm`),
+  compareDeliveryAndPickup: (rentalId: number) => 
+    api.get<VehicleConditionCheck>(`/vehicle-condition-checks/rental/${rentalId}/compare`),
+};
+
 export default api;

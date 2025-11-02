@@ -71,3 +71,5 @@ DROP INDEX IF EXISTS idx_rentals_confirmed_at;
 ```
 
 
+
+

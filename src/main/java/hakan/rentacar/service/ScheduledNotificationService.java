@@ -9,4 +9,5 @@ public interface ScheduledNotificationService {
     void processCarPickupReminders();
     void processRatingRequests();
     void processAllNotifications();
+    void processContractExpirations();
 }
